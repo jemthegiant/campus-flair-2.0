@@ -1,0 +1,515 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Campus Flair 2.0 — "neon-noir campus" design system.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-neon: var(--neon);
+  --color-neon-foreground: var(--neon-foreground);
+  --color-magenta: var(--magenta);
+  --color-magenta-foreground: var(--magenta-foreground);
+  --color-warn: var(--warn);
+  --color-warn-foreground: var(--warn-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Daylight lab (light mode) */
+  --background: oklch(0.975 0.008 240);
+  --foreground: oklch(0.22 0.045 268);
+  --card: oklch(0.995 0.004 240);
+  --card-foreground: oklch(0.22 0.045 268);
+  --popover: oklch(0.995 0.004 240);
+  --popover-foreground: oklch(0.22 0.045 268);
+  --primary: oklch(0.62 0.15 220);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --secondary: oklch(0.93 0.02 260);
+  --secondary-foreground: oklch(0.28 0.05 268);
+  --muted: oklch(0.94 0.014 250);
+  --muted-foreground: oklch(0.5 0.035 260);
+  --accent: oklch(0.9 0.06 200);
+  --accent-foreground: oklch(0.25 0.05 250);
+  --destructive: oklch(0.58 0.22 20);
+  --destructive-foreground: oklch(0.99 0.005 240);
+  --border: oklch(0.88 0.02 250);
+  --input: oklch(0.9 0.018 250);
+  --ring: oklch(0.62 0.15 220);
+
+  --neon: oklch(0.55 0.09 215);
+  --neon-foreground: oklch(0.99 0.005 240);
+  --magenta: oklch(0.55 0.13 340);
+  --magenta-foreground: oklch(0.99 0.005 240);
+  --warn: oklch(0.72 0.16 70);
+  --warn-foreground: oklch(0.2 0.04 70);
+  --success: oklch(0.66 0.16 158);
+  --success-foreground: oklch(0.15 0.03 158);
+  --surface: oklch(1 0 0 / 50%);
+  --surface-foreground: oklch(0.22 0.045 268);
+
+  --bg-graph-neon: oklch(0.75 0.06 215);
+  --bg-graph-magenta: oklch(0.75 0.08 340);
+  --bg-graph-accent: oklch(0.75 0.07 275);
+
+  --chart-1: oklch(0.55 0.1 215);
+  --chart-2: oklch(0.55 0.13 340);
+  --chart-3: oklch(0.72 0.16 70);
+  --chart-4: oklch(0.55 0.11 275);
+  --chart-5: oklch(0.66 0.16 158);
+
+  --sidebar: oklch(0.965 0.01 245);
+  --sidebar-foreground: oklch(0.24 0.045 268);
+  --sidebar-primary: oklch(0.62 0.15 220);
+  --sidebar-primary-foreground: oklch(0.99 0.005 240);
+  --sidebar-accent: oklch(0.92 0.03 230);
+  --sidebar-accent-foreground: oklch(0.24 0.045 268);
+  --sidebar-border: oklch(0.88 0.02 250);
+  --sidebar-ring: oklch(0.62 0.15 220);
+
+  --gold: oklch(0.72 0.12 85);
+
+  --glow-neon:
+    0 0 0 1px color-mix(in oklab, var(--neon) 22%, transparent),
+    0 12px 36px -18px color-mix(in oklab, var(--neon) 30%, transparent);
+  --glow-magenta: 0 0 26px -10px color-mix(in oklab, var(--magenta) 32%, transparent);
+  --gradient-brand: linear-gradient(120deg, var(--neon), var(--magenta));
+  --gradient-veil: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--neon) 12%, transparent),
+    transparent 55%
+  );
+  --grid-line: color-mix(in oklab, var(--neon) 9%, transparent);
+}
+
+.dark {
+  --background: oklch(0.17 0.022 265);
+  --foreground: oklch(0.95 0.015 250);
+  --card: oklch(0.215 0.025 265);
+  --card-foreground: oklch(0.95 0.015 250);
+  --popover: oklch(0.2 0.04 275);
+  --popover-foreground: oklch(0.95 0.015 250);
+  --primary: oklch(0.74 0.1 205);
+  --primary-foreground: oklch(0.15 0.04 275);
+  --secondary: oklch(0.27 0.05 278);
+  --secondary-foreground: oklch(0.95 0.015 250);
+  --muted: oklch(0.26 0.045 278);
+  --muted-foreground: oklch(0.72 0.03 255);
+  --accent: oklch(0.32 0.08 290);
+  --accent-foreground: oklch(0.95 0.015 250);
+  --destructive: oklch(0.66 0.21 20);
+  --destructive-foreground: oklch(0.98 0.01 250);
+  --border: oklch(0.82 0.1 240 / 18%);
+  --input: oklch(0.82 0.1 240 / 22%);
+  --ring: oklch(0.74 0.09 205);
+
+  --neon: oklch(0.78 0.09 205);
+  --neon-foreground: oklch(0.15 0.04 275);
+  --magenta: oklch(0.66 0.14 340);
+  --magenta-foreground: oklch(0.15 0.04 275);
+  --warn: oklch(0.82 0.16 80);
+  --warn-foreground: oklch(0.18 0.04 80);
+  --success: oklch(0.78 0.17 160);
+  --success-foreground: oklch(0.16 0.04 160);
+  --surface: oklch(0.24 0.05 278 / 78%);
+  --surface-foreground: oklch(0.95 0.015 250);
+
+  --bg-graph-neon: oklch(0.78 0.09 205);
+  --bg-graph-magenta: oklch(0.66 0.14 340);
+  --bg-graph-accent: oklch(0.68 0.11 285);
+
+  --chart-1: oklch(0.78 0.09 205);
+  --chart-2: oklch(0.66 0.14 340);
+  --chart-3: oklch(0.82 0.16 80);
+  --chart-4: oklch(0.68 0.11 285);
+  --chart-5: oklch(0.78 0.17 160);
+
+  --sidebar: oklch(0.19 0.024 265);
+  --sidebar-foreground: oklch(0.93 0.015 250);
+  --sidebar-primary: oklch(0.78 0.09 205);
+  --sidebar-primary-foreground: oklch(0.15 0.04 275);
+  --sidebar-accent: oklch(0.27 0.06 285);
+  --sidebar-accent-foreground: oklch(0.95 0.015 250);
+  --sidebar-border: oklch(0.82 0.1 240 / 16%);
+  --sidebar-ring: oklch(0.78 0.09 205);
+
+  --gold: oklch(0.82 0.11 85);
+
+  --grid-line: color-mix(in oklab, var(--neon) 11%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@utility glass {
+  background-color: var(--surface);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid color-mix(in oklab, var(--neon) 12%, transparent);
+}
+
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility neon-glow {
+  box-shadow: var(--glow-neon);
+}
+
+@utility cyber-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@keyframes cf-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(-4%, -2%, 0) scale(1.05);
+  }
+}
+
+@keyframes cf-grid-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 64px;
+  }
+}
+
+@keyframes cf-scan {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(520%);
+  }
+}
+
+@keyframes cf-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cf-bar {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes cf-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.cf-scene {
+  perspective: 900px;
+  perspective-origin: 50% 45%;
+}
+.cf-stage {
+  transform-style: preserve-3d;
+  animation: cf-stage-sway 48s ease-in-out infinite;
+}
+.cf-lamp {
+  transform-style: preserve-3d;
+  animation-name: cf-lamp-float, cf-lamp-flicker;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  opacity: 0.65;
+}
+.cf-floor {
+  transform: rotateX(72deg) translateZ(-120px);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, black, transparent 78%);
+  -webkit-mask-image: linear-gradient(to top, black, transparent 78%);
+}
+
+@keyframes cf-stage-sway {
+  0%,
+  100% {
+    transform: rotateX(-4deg) rotateY(-6deg) translateY(-2%);
+  }
+  50% {
+    transform: rotateX(4deg) rotateY(6deg) translateY(2%);
+  }
+}
+
+@keyframes cf-lamp-float {
+  0%,
+  100% {
+    translate: -12% -8%;
+    scale: 0.92;
+    rotate: -6deg;
+  }
+  25% {
+    translate: 8% -4%;
+    scale: 1.06;
+    rotate: 3deg;
+  }
+  50% {
+    translate: 14% 10%;
+    scale: 1;
+    rotate: 8deg;
+  }
+  75% {
+    translate: -6% 6%;
+    scale: 1.08;
+    rotate: -2deg;
+  }
+}
+
+@keyframes cf-lamp-flicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  40% {
+    opacity: 0.55;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.45;
+  }
+}
+
+/* --- Holographic knowledge graph + academic geometries --- */
+.cf-layer {
+  transform-style: preserve-3d;
+}
+.cf-graph {
+  transform-style: preserve-3d;
+  animation: cf-graph-drift 60s ease-in-out infinite;
+}
+.cf-node {
+  opacity: 0.7;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cf-edge {
+  stroke-dasharray: 6 10;
+  animation: cf-edge-flow 9s linear infinite;
+}
+.cf-geo {
+  transform-style: preserve-3d;
+  animation-name: cf-geo-tumble;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.cf-geo-orbit {
+  transform-style: preserve-3d;
+  animation-name: cf-geo-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.cf-geo-face {
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in oklab, var(--neon) 60%, transparent);
+  border-radius: 2px;
+}
+
+@keyframes cf-graph-drift {
+  0%,
+  100% {
+    transform: translate3d(-2%, -1.5%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.05);
+  }
+}
+
+@keyframes cf-node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes cf-edge-flow {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    stroke-dashoffset: -64;
+    opacity: 0.18;
+  }
+}
+
+@keyframes cf-geo-tumble {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
+  }
+}
+
+@keyframes cf-geo-drift {
+  0%,
+  100% {
+    translate: -6% -4%;
+    scale: 0.94;
+  }
+  50% {
+    translate: 6% 5%;
+    scale: 1.08;
+  }
+}
+
+
+.cf-drift {
+  animation: cf-drift 44s ease-in-out infinite;
+}
+.cf-grid-scroll {
+  animation: cf-grid-scroll 40s linear infinite;
+}
+.cf-scan {
+  animation: cf-scan 16s linear infinite;
+}
+.cf-pulse-ring {
+  animation: cf-pulse-ring 2.4s ease-in-out infinite;
+}
+.cf-rise {
+  animation: cf-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.cf-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--neon) 45%, transparent),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: cf-bar 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-drift,
+  .cf-grid-scroll,
+  .cf-scan,
+  .cf-pulse-ring,
+  .cf-rise,
+  .cf-shimmer {
+    animation: none !important;
+  }
+}
